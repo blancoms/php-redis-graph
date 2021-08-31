@@ -1,7 +1,7 @@
 RedisGraph PHP Client
 =====================
 
-[![Build Status](https://travis-ci.org/kjdev/php-redis-graph.svg?branch=master)](https://travis-ci.org/kjdev/php-redis-graph)
+[![Build Status](https://travis-ci.org/blancoms/php-redis-graph.svg?branch=master)](https://travis-ci.org/blancoms/php-redis-graph)
 
 [RedisGraph](https://github.com/RedisGraph/RedisGraph)
 
@@ -9,7 +9,7 @@ Install
 -------
 
 ``` sh
-composer require kjdev/redis-graph
+composer require blancoms/redis-graph
 ```
 
 As Redis's client library, use either.
