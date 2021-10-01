@@ -35,11 +35,11 @@ class Graph
     $this->name = $name;
     $this->redis = $redis;
 
-    $response = $this->redisCommand('MODULE', 'LIST');
-    if (!isset($response[0]) || !is_array($response[0])
-        || !in_array('graph', $response[0], true)) {
-      throw new RuntimeException('RedisGraph module not loaded.');
-    }
+    // $response = $this->redisCommand('MODULE', 'LIST');
+    // if (!isset($response[0]) || !is_array($response[0])
+    //     || !in_array('graph', $response[0], true)) {
+    //   throw new RuntimeException('RedisGraph module not loaded.');
+    // }
   }
 
   public function addNode(Node $node): self
