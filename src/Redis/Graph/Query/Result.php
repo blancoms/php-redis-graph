@@ -229,7 +229,7 @@ class Result
         $scalar = (int) $value;
         break;
       case self::PROPERTY_BOOLEAN:
-        $scalar = (bool) $value;
+        $scalar = $this->castBool($value);
         break;
       case self::PROPERTY_DOUBLE:
         $scalar = (float) $value;
@@ -242,6 +242,11 @@ class Result
     }
 
     return $scalar ?? null;
+  }
+
+  private function castBool($val, $return_null=false){
+    $boolval = ( is_string($val) ? filter_var($val, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) : (bool) $val );
+    return ( $boolval===null && !$return_null ? false : $boolval );
   }
 
   private function parseArray(array $value) {
