@@ -88,8 +88,7 @@ class Graph
       'GRAPH.QUERY',
       $this->name,
       $command,
-      '--compact',
-      'timeout 1000'
+      '--compact'
     );
     return new Result($this, $response);
   }
