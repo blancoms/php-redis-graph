@@ -223,7 +223,8 @@ class Result
         $scalar = null;
         break;
       case self::PROPERTY_STRING:
-        $scalar = (string) $value;
+        $decodedJson = $this->decodeJson($value);
+        $scalar = $decodedJson !== false ? $decodedJson : (string) $value;
         break;
       case self::PROPERTY_INTEGER:
         $scalar = (int) $value;
@@ -242,6 +243,18 @@ class Result
     }
 
     return $scalar ?? null;
+  }
+
+  private function decodeJson(string $value): bool
+  {
+      $val = '';
+      try {
+          $val = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+      } catch (\JsonException) {
+          return false;
+      }
+  
+      return $val;
   }
 
   private function castBool($val, $return_null=false){
