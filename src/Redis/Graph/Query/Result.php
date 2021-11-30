@@ -224,7 +224,7 @@ class Result
         break;
       case self::PROPERTY_STRING:
         $decodedJson = $this->decodeJson($value);
-        $scalar = $decodedJson !== false ? $this->parseArray($decodedJson) : (string) $value;
+        $scalar = $decodedJson !== false ? $decodedJson : (string) $value;
         break;
       case self::PROPERTY_INTEGER:
         $scalar = (int) $value;
